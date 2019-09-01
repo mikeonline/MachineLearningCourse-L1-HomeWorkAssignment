@@ -14,11 +14,9 @@ async function app() {
 		const activation = net.infer(webcamElement, 'cov_preds');
 		classifier.addExample(activation,classId);
 	};
-
 	document.getElementById('class-a').addEventListener('click', () => addExample(0));
 	document.getElementById('class-b').addEventListener('click', () => addExample(1));
 	document.getElementById('class-c').addEventListener('click', () => addExample(2));			
-
 	while (true) {
 		if (classifier.getNumClasses() > 0) {
 			const activation = net.infer(webcamElement, 'cov_preds');
